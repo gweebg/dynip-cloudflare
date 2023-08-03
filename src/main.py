@@ -17,6 +17,9 @@ def main():
         if value is None:
             raise InvalidEnvironmentalVariablesException("The env variables CLOUDFLARE_TOKEN and ZONE_ID must be set.")
 
+        if value == "changeme":
+            raise InvalidEnvironmentalVariablesException("Make sure to change the env variables on the Dockefile.")
+
     service: Updater = Updater(config=config, key="[update]")  # Todo: Make key an argument for the application.
     service.run()
 
